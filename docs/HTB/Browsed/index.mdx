@@ -1,0 +1,39 @@
+---
+title: HTB – Browsed
+sidebar_position: 4
+toc_min_heading_level: 2 
+toc_max_heading_level: 3 
+---
+
+
+import ProfileHeader from '@site/src/components/ProfileHeader';
+import ActiveMachineNotice from '@site/src/components/ActiveMachineNotice'
+import pic from './browsedpfp.png';
+
+<ProfileHeader image={pic} />
+
+# Browsed
+
+Machine IP: 10.129.4.147 (RA)
+
+Difficulty: Medium, OS: Linux, Creator: [Tensho](https://app.hackthebox.com/users/185448)
+
+## User
+
+### Nmap Scan
+
+We scan the target with nmap and get the following ports:
+
+```bash
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 9.6p1 Ubuntu 3ubuntu13.14 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 02:c8:a4:ba:c5:ed:0b:13:ef:b7:e7:d7:ef:a2:9d:92 (ECDSA)
+|_  256 53:ea:be:c7:07:05:9d:aa:9f:44:f8:bf:32:ed:5c:9a (ED25519)
+80/tcp open  http    nginx 1.24.0 (Ubuntu)
+|_http-server-header: nginx/1.24.0 (Ubuntu)
+|_http-title: Browsed
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+```
+
+<ActiveMachineNotice />

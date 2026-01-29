@@ -1,0 +1,98 @@
+---
+title: HTB – Fries
+sidebar_position: 3
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+import ProfileHeader from '@site/src/components/ProfileHeader';
+import ActiveMachineNotice from '@site/src/components/ActiveMachineNotice'
+import pic from './friespfp.png';
+
+<ProfileHeader image={pic} />
+
+# Fries
+
+Machine IP: 10.10.11.96
+
+Difficulty: Hard, OS: Windows, Creators: ruycr4ft & kavigihan
+
+Please allow up to 7 minutes for services to load. As is common in real life Windows penetration tests, you will start the Fries box with credentials for the following account
+
+**User:** d.cooper@fries.htb
+
+**Pass:** D4LE11maan!!
+
+## User
+
+### Nmap Scan
+
+We scan the target with nmap and get the following ports:
+
+```bash
+PORT     STATE SERVICE       VERSION
+22/tcp   open  ssh           OpenSSH 8.9p1 Ubuntu 3ubuntu0.13 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 b3:a8:f7:5d:60:e8:66:16:ca:92:f6:76:ba:b8:33:c2 (ECDSA)
+|_  256 07:ef:11:a6:a0:7d:2b:4d:e8:68:79:1a:7b:a7:a9:cd (ED25519)
+53/tcp   open  domain        Simple DNS Plus
+80/tcp   open  http          nginx 1.18.0 (Ubuntu)
+|_http-title: Did not follow redirect to http://fries.htb/
+|_http-server-header: nginx/1.18.0 (Ubuntu)
+88/tcp   open  kerberos-sec  Microsoft Windows Kerberos (server time: 2025-11-23 02:03:12Z)
+135/tcp  open  msrpc         Microsoft Windows RPC
+139/tcp  open  netbios-ssn   Microsoft Windows netbios-ssn
+389/tcp  open  ldap          Microsoft Windows Active Directory LDAP (Domain: fries.htb0., Site: Default-First-Site-Name)
+|_ssl-date: 2025-11-23T02:04:33+00:00; +7h00m01s from scanner time.
+| ssl-cert: Subject: 
+| Subject Alternative Name: DNS:DC01.fries.htb, DNS:fries.htb, DNS:FRIES
+| Not valid before: 2025-11-18T05:39:19
+|_Not valid after:  2105-11-18T05:39:19
+443/tcp  open  ssl/http      nginx 1.18.0 (Ubuntu)
+|_http-server-header: nginx/1.18.0 (Ubuntu)
+|_ssl-date: TLS randomness does not represent time
+| ssl-cert: Subject: commonName=pwm.fries.htb/organizationName=Fries Foods LTD/stateOrProvinceName=Madrid/countryName=SP
+| Not valid before: 2025-06-01T22:06:09
+|_Not valid after:  2026-06-01T22:06:09
+|_http-title: Site doesn't have a title (text/html;charset=ISO-8859-1).
+| tls-nextprotoneg: 
+|_  http/1.1
+| tls-alpn: 
+|_  http/1.1
+445/tcp  open  microsoft-ds?
+464/tcp  open  kpasswd5?
+593/tcp  open  ncacn_http    Microsoft Windows RPC over HTTP 1.0
+636/tcp  open  ssl/ldap      Microsoft Windows Active Directory LDAP (Domain: fries.htb0., Site: Default-First-Site-Name)
+|_ssl-date: 2025-11-23T02:04:33+00:00; +7h00m02s from scanner time.
+| ssl-cert: Subject: 
+| Subject Alternative Name: DNS:DC01.fries.htb, DNS:fries.htb, DNS:FRIES
+| Not valid before: 2025-11-18T05:39:19
+|_Not valid after:  2105-11-18T05:39:19
+2179/tcp open  vmrdp?
+3268/tcp open  ldap          Microsoft Windows Active Directory LDAP (Domain: fries.htb0., Site: Default-First-Site-Name)
+|_ssl-date: 2025-11-23T02:04:33+00:00; +7h00m01s from scanner time.
+| ssl-cert: Subject: 
+| Subject Alternative Name: DNS:DC01.fries.htb, DNS:fries.htb, DNS:FRIES
+| Not valid before: 2025-11-18T05:39:19
+|_Not valid after:  2105-11-18T05:39:19
+3269/tcp open  ssl/ldap      Microsoft Windows Active Directory LDAP (Domain: fries.htb0., Site: Default-First-Site-Name)
+|_ssl-date: 2025-11-23T02:04:33+00:00; +7h00m02s from scanner time.
+| ssl-cert: Subject: 
+| Subject Alternative Name: DNS:DC01.fries.htb, DNS:fries.htb, DNS:FRIES
+| Not valid before: 2025-11-18T05:39:19
+|_Not valid after:  2105-11-18T05:39:19
+5985/tcp open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-title: Not Found
+|_http-server-header: Microsoft-HTTPAPI/2.0
+Service Info: Host: DC01; OSs: Linux, Windows; CPE: cpe:/o:linux:linux_kernel, cpe:/o:microsoft:windows
+
+Host script results:
+| smb2-time: 
+|   date: 2025-11-23T02:03:57
+|_  start_date: N/A
+|_clock-skew: mean: 7h00m01s, deviation: 0s, median: 7h00m00s
+| smb2-security-mode: 
+|   3:1:1: 
+|_    Message signing enabled and required
+```
+<ActiveMachineNotice />

@@ -1,0 +1,35 @@
+---
+title: HTB – AirTouch
+sidebar_position: 5
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+import ProfileHeader from '@site/src/components/ProfileHeader';
+import ActiveMachineNotice from '@site/src/components/ActiveMachineNotice'
+import pic from './airtouchpfp.png';
+
+<ProfileHeader image={pic} />
+
+# AirTouch
+
+Machine IP :10.129.9.176 (RA)
+
+Difficulty: Medium, OS: Linux, Creator: [r4ulcl](https://app.hackthebox.com/users/1345165)
+
+## User
+
+### Nmap Scan
+
+We scan the target with nmap and get the following ports:
+
+```python
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.11 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 bd:90:00:15:cf:4b:da:cb:c9:24:05:2b:01:ac:dc:3b (RSA)
+|   256 6e:e2:44:70:3c:6b:00:57:16:66:2f:37:58:be:f5:c0 (ECDSA)
+|_  256 ad:d5:d5:f0:0b:af:b2:11:67:5b:07:5c:8e:85:76:76 (ED25519)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+```
+<ActiveMachineNotice />

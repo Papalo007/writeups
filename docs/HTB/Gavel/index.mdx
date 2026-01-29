@@ -1,0 +1,38 @@
+---
+title: HTB – Gavel
+sidebar_position: 2
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+import ProfileHeader from '@site/src/components/ProfileHeader';
+import ActiveMachineNotice from '@site/src/components/ActiveMachineNotice'
+import pic from './gavelpfp.png';
+
+<ProfileHeader image={pic} />
+
+
+# Gavel
+
+Machine IP: 10.129.144.17
+
+Difficulty: Medium, OS: Linux, Creator: [Shadow21A](https://app.hackthebox.com/users/1317214)
+
+## User
+
+### Nmap Scan
+
+We scan the target with nmap and get the following ports:
+
+```bash
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.9p1 Ubuntu 3ubuntu0.13 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 1f:de:9d:84:bf:a1:64:be:1f:36:4f:ac:3c:52:15:92 (ECDSA)
+|_  256 70:a5:1a:53:df:d1:d0:73:3e:9d:90:ad:c1:aa:b4:19 (ED25519)
+80/tcp open  http    Apache httpd 2.4.52
+|_http-title: Did not follow redirect to http://gavel.htb/
+|_http-server-header: Apache/2.4.52 (Ubuntu)
+Service Info: Host: gavel.htb; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+```
+<ActiveMachineNotice />
