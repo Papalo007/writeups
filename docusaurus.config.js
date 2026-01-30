@@ -70,15 +70,6 @@ const config = {
 
   plugins: [
     [
-      "@docusaurus/plugin-sitemap",
-      {
-        changefreq: "weekly",
-        priority: 0.5,
-        ignorePatterns: ["/tags/**"],
-        filename: "sitemap.xml",
-      },
-    ],
-    [
       require.resolve("@easyops-cn/docusaurus-search-local"),
       {
         hashed: true,
