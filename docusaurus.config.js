@@ -68,11 +68,31 @@ const config = {
     ],
   ],
 
+  plugins: [
+    [
+      "@docusaurus/plugin-sitemap",
+      {
+        changefreq: "weekly",
+        priority: 0.5,
+        ignorePatterns: ["/tags/**"],
+        filename: "sitemap.xml",
+      },
+    ],
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      {
+        hashed: true,
+        language: ["en"],
+        highlightSearchTermsOnTargetPage: true,
+      },
+    ],
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: "img/docusaurus-social-card.jpg",
+      image: "img/therizzard.jpg",
       colorMode: {
         respectPrefersColorScheme: true,
       },
@@ -90,9 +110,18 @@ const config = {
             label: "GitHub",
             position: "right",
           },
+
+          { type: "search", position: "right" },
         ],
       },
-      
+      metadata: [
+        {
+          name: "keywords",
+          content: "hackthebox, htb, cybersecurity, writeups, ctf",
+        },
+        { name: "author", content: "Papalo007" },
+      ],
+
       smoothScroll: true,
 
       footer: {
