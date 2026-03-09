@@ -1,5 +1,7 @@
 # Website
 
+https://papalo007.github.io/writeups/
+
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
 ## Installation
