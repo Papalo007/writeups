@@ -106,6 +106,7 @@ const config = {
         ],
       },
       metadata: [
+        { name: "google-site-verification", content: "xGdAKvbAKwIO0EBVP7rVnwzEHBkeN4AewLOkq922Ub0" },
         {
           name: "keywords",
           content: "hackthebox, htb, cybersecurity, writeups, ctf",
